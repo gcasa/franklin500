@@ -316,6 +316,7 @@
 				14736B881DA33AF8000D3F05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
