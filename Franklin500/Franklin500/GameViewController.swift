@@ -2,7 +2,7 @@
 //  GameViewController.swift
 //  Franklin500
 //
-//  Created by Gregory Casamento on 10/3/16.
+//  Created by Gregory Casamento and Nicholas Casamento on 10/3/16.
 //  Copyright © 2016 olc. All rights reserved.
 //
 
@@ -23,8 +23,7 @@ class GameViewController: UIViewController {
             if let sceneNode = scene.rootNode as! GameScene? {
                 
                 // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
+               
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
