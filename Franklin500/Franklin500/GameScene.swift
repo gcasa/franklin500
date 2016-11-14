@@ -9,9 +9,11 @@
 import SpriteKit
 import GameplayKit
 
+var player = SKSpriteNode(imageNamed:"Spaceship")
+var dpad = SKSpriteNode(imageNamed:"Dpad")
+var joystick = SKSpriteNode(imageNamed:"Joystick")
 
 class GameScene: SKScene {
-    var player = SKSpriteNode(imageNamed:"Spaceship")
     override func didMove(to view: SKView) {
         //Set up scene here
         
@@ -20,7 +22,21 @@ class GameScene: SKScene {
         player.position = CGPoint(x: frame.width / 10, y: frame.height / 10)
         
         self.addChild(player)
-
+        
+        dpad.xScale = 1.5
+        dpad.yScale = 1.5
+        dpad.position = CGPoint(x:-530, y:-250)
+        
+        self.addChild(dpad)
+        
+        joystick.xScale = 1.5
+        joystick.yScale = 1.5
+        joystick.position = dpad.position
+        
+        self.addChild(joystick)
+        
+        dpad.alpha = 0.4
+        joystick.alpha = 0.4
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

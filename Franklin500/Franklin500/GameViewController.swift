@@ -62,9 +62,3 @@ class GameViewController: UIViewController {
         return true
     }
 }
-
-//Creates joystick class and movement
-class joystick : SKNode {
-    
-}
-
