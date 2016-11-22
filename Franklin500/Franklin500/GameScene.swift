@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 var player = SKSpriteNode(imageNamed:"Spaceship")
-var dpad = SKSpriteNode(imageNamed:"Dpad")
+var base = SKSpriteNode(imageNamed:"Base")
 var joystick = SKSpriteNode(imageNamed:"Joystick")
 
 class GameScene: SKScene {
@@ -23,19 +23,19 @@ class GameScene: SKScene {
         
         self.addChild(player)
         
-        dpad.xScale = 1.5
-        dpad.yScale = 1.5
-        dpad.position = CGPoint(x:-530, y:-250)
+        base.xScale = 1.5
+        base.yScale = 1.5
+        base.position = CGPoint(x:-530, y:-250)
         
-        self.addChild(dpad)
+        self.addChild(base)
         
         joystick.xScale = 1.5
         joystick.yScale = 1.5
-        joystick.position = dpad.position
+        joystick.position = base.position
         
         self.addChild(joystick)
         
-        dpad.alpha = 0.4
+        base.alpha = 0.4
         joystick.alpha = 0.4
     }
 
@@ -47,6 +47,28 @@ class GameScene: SKScene {
             if player.contains(location){
                 player.position = location
             }
+        }
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //Moving the joystick around the base
+        for touch in touches{
+            let location = touch.location(in: self)
+            
+            let v = CGVector(dx: location.x - base.position.x, dy: location.y - base.position.y)
+            let angle = atan2(v.dx, v.dy)
+            
+            let deg = angle * CGFloat(100 / M_PI)
+            print(deg)
+            
+            let length:CGFloat = base.frame.size.height / 2
+            
+            let XDist:CGFloat = sin(angle - 1) * length
+            let yDist:CGFloat = cos(angle) * length
+            
+            joystick.position = CGPoint(x: base.position.x - XDist, y: base.position.y - yDist)
+            
         }
         
     }
