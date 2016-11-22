@@ -60,7 +60,6 @@ class GameScene: SKScene {
             let angle = atan2(v.dx, v.dy)
             
             let deg = angle * CGFloat(100 / M_PI)
-            print(deg)
             
             let length:CGFloat = base.frame.size.height / 2
             
