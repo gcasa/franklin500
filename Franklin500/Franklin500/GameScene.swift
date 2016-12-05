@@ -13,6 +13,8 @@ var player = SKSpriteNode(imageNamed:"Spaceship")
 var base = SKSpriteNode(imageNamed:"Base")
 var joystick = SKSpriteNode(imageNamed:"Joystick")
 
+var stickActive:Bool = false
+
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
         //Set up scene here
@@ -46,7 +48,9 @@ class GameScene: SKScene {
             
             if player.contains(location){
                 player.position = location
+                
             }
+            
         }
         
     }
@@ -61,12 +65,14 @@ class GameScene: SKScene {
             
             let deg = angle * CGFloat(100 / M_PI)
             
-            let length:CGFloat = base.frame.size.height / 2
+            //let length:CGFloat = base.frame.size.height / 5
             
-            let XDist:CGFloat = sin(angle - 1) * length
+            let length:CGFloat = 40
+            
+            let XDist:CGFloat = sin(angle) * length
             let yDist:CGFloat = cos(angle) * length
             
-            joystick.position = CGPoint(x: base.position.x - XDist, y: base.position.y - yDist)
+            joystick.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
             
         }
         
