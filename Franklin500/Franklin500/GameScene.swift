@@ -46,8 +46,11 @@ class GameScene: SKScene {
         for touch in touches{
             let location = touch.location(in: self)
             
-            if player.contains(location){
-                player.position = location
+            if (joystick.frame.contains(location)) {
+                stickActive = true
+                
+            } else {
+                stickActive = false
                 
             }
             
@@ -60,6 +63,8 @@ class GameScene: SKScene {
         for touch in touches{
             let location = touch.location(in: self)
             
+            if (stickActive == true) {
+            
             let v = CGVector(dx: location.x - base.position.x, dy: location.y - base.position.y)
             let angle = atan2(v.dx, v.dy)
             
@@ -67,18 +72,39 @@ class GameScene: SKScene {
             
             //let length:CGFloat = base.frame.size.height / 5
             
-            let length:CGFloat = 40
+            let length:CGFloat = 70
             
             let XDist:CGFloat = sin(angle) * length
             let yDist:CGFloat = cos(angle) * length
             
             joystick.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
+                
+                if (base.frame.contains(location)) {
+                    joystick.position = location
+                    
+                } else {
+                joystick.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
+                    
+                }
             
+            player.zRotation = -angle
+                
+        }// ends stickActive
+        
+        }
+    
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (stickActive == true ) {
+            let move:SKAction = SKAction.move(to: base.position, duration: 0.1)
+            
+            joystick.run(move)
         }
         
     }
     
-        
+    
     override func update(_ currentTime: CFTimeInterval) {
         //Called before each frame is rendered
     }
