@@ -104,7 +104,6 @@ class GameScene: SKScene {
         
     }
     
-    
     override func update(_ currentTime: CFTimeInterval) {
         //Called before each frame is rendered
     }
