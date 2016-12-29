@@ -15,6 +15,18 @@ var joystick = SKSpriteNode(imageNamed:"Joystick")
 
 var stickActive:Bool = false
 
+class Button: SKSpriteNode {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+}
+
+
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
         //Set up scene here
@@ -37,8 +49,17 @@ class GameScene: SKScene {
         
         self.addChild(joystick)
         
+        let buttonOne = Button(imageNamed:"buttonA")
+        
+        buttonOne.xScale = 1.5
+        buttonOne.yScale = 1.5
+        buttonOne.position = CGPoint(x:530, y:-250)
+        
+        self.addChild(buttonOne)
+        
         base.alpha = 0.4
         joystick.alpha = 0.4
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
