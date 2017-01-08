@@ -18,12 +18,17 @@ var stickActive:Bool = false
 class Button: SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        //Called when a touch begins
+        for touch in touches {
+            let location = touch.location(in: self)
+            
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
+    
 }
 
 
@@ -127,6 +132,7 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: CFTimeInterval) {
         //Called before each frame is rendered
+        
     }
     
 }
