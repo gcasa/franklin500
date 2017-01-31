@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01CEFA591E40FD4900435FBC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEFA581E40FD4900435FBC /* Button.swift */; };
+		01CEFA5D1E41256D00435FBC /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEFA5C1E41256D00435FBC /* Joystick.swift */; };
 		14736B721DA33AF8000D3F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14736B711DA33AF8000D3F05 /* AppDelegate.swift */; };
 		14736B741DA33AF8000D3F05 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 14736B731DA33AF8000D3F05 /* GameScene.sks */; };
 		14736B761DA33AF8000D3F05 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 14736B751DA33AF8000D3F05 /* Actions.sks */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01CEFA581E40FD4900435FBC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		01CEFA5C1E41256D00435FBC /* Joystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		14736B6E1DA33AF8000D3F05 /* Franklin500.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Franklin500.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14736B711DA33AF8000D3F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14736B731DA33AF8000D3F05 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				14736B731DA33AF8000D3F05 /* GameScene.sks */,
 				14736B751DA33AF8000D3F05 /* Actions.sks */,
 				14736B771DA33AF8000D3F05 /* GameScene.swift */,
+				01CEFA581E40FD4900435FBC /* Button.swift */,
+				01CEFA5C1E41256D00435FBC /* Joystick.swift */,
 				14736B791DA33AF8000D3F05 /* GameViewController.swift */,
 				14736B7B1DA33AF8000D3F05 /* Main.storyboard */,
 				14736B7E1DA33AF8000D3F05 /* Assets.xcassets */,
@@ -100,7 +106,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = olc;
 				TargetAttributes = {
 					14736B6D1DA33AF8000D3F05 = {
@@ -150,7 +156,9 @@
 			files = (
 				14736B781DA33AF8000D3F05 /* GameScene.swift in Sources */,
 				14736B7A1DA33AF8000D3F05 /* GameViewController.swift in Sources */,
+				01CEFA5D1E41256D00435FBC /* Joystick.swift in Sources */,
 				14736B721DA33AF8000D3F05 /* AppDelegate.swift in Sources */,
+				01CEFA591E40FD4900435FBC /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +202,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -244,6 +253,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
