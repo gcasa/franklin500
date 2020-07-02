@@ -11,28 +11,25 @@ import SpriteKit
 import GameplayKit
 import GameController
 
-class Joystick: SKSpriteNode {
-    
-    var joystick = SKSpriteNode(imageNamed:"Joystick")
-    var base = SKSpriteNode(imageNamed:"Base")
+class Joystick: ActionNode {
     
     var stickActive:Bool = false
-        
+    var player : SKSpriteNode!
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //Called when a touch begins
-        for touch in touches{
+        for touch in touches {
             let location = touch.location(in: self)
             
-            if (joystick.frame.contains(location)) {
+            if (self.frame.contains(location)) {
                 stickActive = true
                 
             } else {
                 stickActive = false
                 
             }
-            
         }
-        
+        super.touchesBegan(touches, with: event)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -45,38 +42,32 @@ class Joystick: SKSpriteNode {
                 let v = CGVector(dx: location.x - base.position.x, dy: location.y - base.position.y)
                 let angle = atan2(v.dx, v.dy)
                 
-                let deg = angle * CGFloat(100 / M_PI)
+                let _ = angle * CGFloat(100 / Double.pi) // degrees
                 
                 let length:CGFloat = 70
                 
                 let XDist:CGFloat = sin(angle) * length
                 let yDist:CGFloat = cos(angle) * length
                 
-                joystick.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
+                self.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
                 
                 if (base.frame.contains(location)) {
-                    joystick.position = location
-                    
+                    self.position = location
                 } else {
-                    joystick.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
-                    
+                    self.position = CGPoint(x: base.position.x + XDist, y: base.position.y + yDist)
                 }
-                
+
                 player.zRotation = -angle
-                
             }// ends stickActive
-            
         }
-        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (stickActive == true ) {
             let move:SKAction = SKAction.move(to: base.position, duration: 0.1)
-            
-            joystick.run(move)
+            self.run(move)
         }
-        
+        super.touchesEnded(touches, with: event)
     }
     
     func update(_ currentTime: CFTimeInterval) {

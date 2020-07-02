@@ -33,13 +33,12 @@ class GameScene: SKScene {
         self.addChild(base)
         
         //Creates joystick and puts it on the GameScene
-        let joystick = SKSpriteNode(imageNamed:"Joystick")
+        let joystick = Joystick(imageNamed:"Joystick")
         
         joystick.xScale = 1.5
         joystick.yScale = 1.5
         joystick.position = base.position
         
-        self.addChild(joystick)
         
         //Creates button A and puts it on the GameScene
         let btn = button(imageNamed:"buttonA")
@@ -48,16 +47,38 @@ class GameScene: SKScene {
         btn.yScale = 1.5
         btn.position = CGPoint(x:530, y:-250)
         
-        self.addChild(btn)
         
         base.alpha = 0.4
         joystick.alpha = 0.4
+        
+        btn.selector = #selector(callbackForButton(sender:))
+        btn.target = self
+        btn.base = base
+        
+        joystick.selector = #selector(callbackForJoystick(sender:))
+        joystick.target = self
+        joystick.base = base
+        joystick.player = player
+        
+        self.addChild(btn)
+        self.addChild(joystick)
+
         
     }
 
     override func update(_ currentTime: CFTimeInterval) {
         //Called before each frame is rendered
         
+    }
+    
+    @objc func callbackForButton(sender:ActionNode!)
+    {
+        print("Callback for button")
+    }
+    
+    @objc func callbackForJoystick(sender:ActionNode!)
+    {
+        print("Callback for joystick")
     }
     
 }
